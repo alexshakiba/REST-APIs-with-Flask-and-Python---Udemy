@@ -14,10 +14,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #turns off Flask-SQLALCH tr
 app.secret_key = 'secret'
 api = Api(app)
 
-@app.before_first_request #before the first request runs, this will run first!
-def create_tables():
-    db.create_all()
-
 jwt = JWT(app, authenticate, identity) #creates a new endoint /auth, when we call /auth, we send a
 #username and passowrd, it calls the auth function and compare the password to what we recieved through the auth endpoint
 
