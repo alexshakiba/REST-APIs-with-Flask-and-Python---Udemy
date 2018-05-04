@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
@@ -9,7 +11,7 @@ from resources.store import Store, StoreList
 
 app = Flask(__name__)
 #change sqlite to whatever db you wnat
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db' #the db will live in the root folder of our project, can use oracle, postgres, mysql etc, only change is here!!!!
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL','sqlite:///data.db') #first connects to Postgre, second is sqllite
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #turns off Flask-SQLALCH tracker, NOT the Alch tracker
 app.secret_key = 'secret'
 api = Api(app)
