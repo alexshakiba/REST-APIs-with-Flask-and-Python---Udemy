@@ -1,4 +1,4 @@
-from app import init_app
+from app import app
 from db import db
 
 #this file needs to be created because app.py will only work when __name__ __main__
