@@ -1,0 +1,3 @@
+#contents are going to be ignored when we add to git
+__pycache__/
+*.pyc
